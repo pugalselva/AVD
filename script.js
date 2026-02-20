@@ -221,7 +221,12 @@ function initContactForm() {
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-        if (!form.name.value.trim() || !form.phone.value.trim() || !form.message.value.trim()) {
+
+        const name = form.name.value.trim();
+        const phone = form.phone.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !phone || !message) {
             form.style.animation = 'shake 0.4s ease';
             setTimeout(() => form.style.animation = '', 500);
             return;
@@ -232,13 +237,48 @@ function initContactForm() {
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         btn.disabled = true;
 
-        setTimeout(() => {
-            form.reset();
-            btn.innerHTML = orig;
-            btn.disabled = false;
-            success.classList.add('show');
-            setTimeout(() => success.classList.remove('show'), 5000);
-        }, 1500);
+        // Create FormData object
+        const formData = new FormData(form);
+
+        // Send to PHP backend
+        fetch('send_email.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok: ' + response.statusText);
+                }
+                return response.text(); // Get as text first to handle potential PHP errors
+            })
+            .then(text => {
+                try {
+                    const data = JSON.parse(text);
+                    btn.innerHTML = orig;
+                    btn.disabled = false;
+
+                    if (data.status === 'success') {
+                        form.reset();
+                        success.innerHTML = '<i class="fas fa-check-circle"></i> <span>Message sent successfully to pugalselvan04@gmail.com!</span>';
+                        success.classList.add('show');
+                        setTimeout(() => success.classList.remove('show'), 5000);
+                    } else {
+                        alert('Error from server: ' + data.message);
+                    }
+                } catch (e) {
+                    console.error('JSON Parse Error:', e);
+                    console.error('Raw Response:', text);
+                    btn.innerHTML = orig;
+                    btn.disabled = false;
+                    alert('Server returned an invalid response. This often happens if PHP mail is not configured in XAMPP. Check console for details.');
+                }
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
+                btn.innerHTML = orig;
+                btn.disabled = false;
+                alert('There was an error sending your message: ' + error.message);
+            });
     });
 
     form.querySelectorAll('input, select, textarea').forEach(input => {

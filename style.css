@@ -2342,3 +2342,125 @@ section {
         display: none;
     }
 }
+
+/* ===== LEADERSHIP SECTION ===== */
+.leadership {
+    padding: 100px 0;
+    background: var(--grey-100);
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.leader-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid var(--grey-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.leader-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: var(--transition);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.leader-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.leader-card:hover::before {
+    transform: scaleX(1);
+}
+
+.leader-image {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    transition: var(--transition);
+    overflow: hidden;
+    /* Added to contain image */
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.leader-card:hover .leader-image img {
+    transform: scale(1.1);
+}
+
+.leader-card:hover .leader-image {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.leader-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.leader-designation {
+    display: block;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.leader-divider {
+    width: 50px;
+    height: 3px;
+    background: var(--accent-light);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.leader-info p {
+    color: var(--grey-300);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
