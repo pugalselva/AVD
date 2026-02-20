@@ -1059,6 +1059,157 @@ section {
 }
 
 /* ===================================
+   COATED ABRASIVES SECTION
+   =================================== */
+.coated-abrasives {
+    background: var(--grey-100);
+}
+
+.coated-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.coated-column {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--grey-200);
+    transition: var(--transition);
+}
+
+.coated-column:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-light);
+}
+
+.coated-category-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--grey-100);
+}
+
+.coated-category-header i {
+    font-size: 2rem;
+    color: var(--accent);
+}
+
+.coated-category-header h3 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.coated-product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.coated-product-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--grey-100);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.coated-product-list li:hover {
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateX(5px);
+}
+
+.product-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--grey-300);
+    /* Adjusted to match dark theme if needed, but primary text color is better */
+    color: var(--text-dark);
+}
+
+.mini-inquiry {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.mini-inquiry:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
+@media (max-width: 992px) {
+    .coated-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .coated-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== COATED VISUAL CARDS (FALLBACK) ===== */
+.coated-visual {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.coated-visual::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(21, 101, 192, 0.4) 0%, transparent 70%);
+    top: -25%;
+    left: -25%;
+    animation: pulse 4s infinite;
+}
+
+.coated-visual i {
+    font-size: 5rem;
+    color: var(--white);
+    opacity: 0.9;
+    z-index: 1;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+}
+
+.product-card:hover .coated-visual i {
+    transform: scale(1.1) rotate(5deg);
+    color: var(--accent-light);
+}
+
+.sheet-visual {
+    background: linear-gradient(135deg, #2c3e50, #4ca1af) !important;
+}
+
+.wheel-visual {
+    background: linear-gradient(135deg, #1e272e, #0fbcf9) !important;
+}
+
+/* ===================================
    GALLERY SECTION
    =================================== */
 .gallery {
