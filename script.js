@@ -9,6 +9,7 @@
    ─────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
+    initDropdown();
     initMobileMenu();
     initSmoothScroll();
     initAnimations();
@@ -16,6 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initContactForm();
     initBackToTop();
+    // Reveal Animations on Scroll
+    const revealElements = document.querySelectorAll('[data-animate="reveal"]');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
 });
 
 /* ───────────────────────────────────────────
@@ -24,11 +36,41 @@ document.addEventListener('DOMContentLoaded', () => {
 function initHeader() {
     const header = document.getElementById('header');
     function onScroll() {
-        header.classList.toggle('scrolled', window.scrollY > 60);
+        header.classList.toggle('scrolled', window.scrollY > 40);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 }
+
+/* ───────────────────────────────────────────
+   DROPDOWN — click to open/close (desktop)
+   ─────────────────────────────────────────── */
+function initDropdown() {
+    const dropdowns = document.querySelectorAll('.nav-item-dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.nav-link');
+
+        trigger.addEventListener('click', (e) => {
+            // Only handle on desktop
+            if (window.innerWidth <= 900) return;
+            e.preventDefault();
+            const isOpen = dropdown.classList.contains('open');
+            // Close all dropdowns first
+            dropdowns.forEach(d => d.classList.remove('open'));
+            // Toggle current
+            if (!isOpen) dropdown.classList.add('open');
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-item-dropdown')) {
+            dropdowns.forEach(d => d.classList.remove('open'));
+        }
+    });
+}
+
 
 /* ───────────────────────────────────────────
    MOBILE MENU
@@ -45,7 +87,25 @@ function initMobileMenu() {
     });
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            // Dropdown handling on mobile
+            const dropdown = link.closest('.nav-item-dropdown');
+            if (dropdown && window.innerWidth <= 900) {
+                // Toggle the dropdown on mobile instead of navigating
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                return;
+            }
+
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Allow dropdown items to also close the menu on mobile
+    navMenu.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('open');
             document.body.style.overflow = '';
@@ -53,16 +113,35 @@ function initMobileMenu() {
     });
 }
 
+
 /* ───────────────────────────────────────────
    SMOOTH SCROLL + ACTIVE NAV
    ─────────────────────────────────────────── */
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    document.querySelectorAll('a[href*="#"]').forEach(link => {
         link.addEventListener('click', e => {
-            const target = document.querySelector(link.getAttribute('href'));
-            if (!target) return;
-            e.preventDefault();
-            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+            const href = link.getAttribute('href');
+            const url = new URL(link.href);
+            const isSamePage = url.pathname === window.location.pathname ||
+                (url.pathname.endsWith('/') && window.location.pathname.endsWith('index.php')) ||
+                (url.pathname.endsWith('index.php') && window.location.pathname.endsWith('/'));
+
+            if (isSamePage && url.hash) {
+                const target = document.querySelector(url.hash);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+
+                    // Close mobile menu if open
+                    const hamburger = document.getElementById('hamburger');
+                    const navMenu = document.getElementById('navMenu');
+                    if (navMenu && navMenu.classList.contains('open')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                }
+            }
         });
     });
 
@@ -70,13 +149,20 @@ function initSmoothScroll() {
     const menuLinks = document.querySelectorAll('.nav-link');
 
     function updateActive() {
+        if (!window.location.pathname.endsWith('index.php') && window.location.pathname !== '/') return;
+
         const scrollY = window.scrollY + 120;
         sections.forEach(section => {
             const id = section.getAttribute('id');
             if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
-                menuLinks.forEach(link =>
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`)
-                );
+                menuLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `index.php#${id}` || href === `#${id}`) {
+                        link.classList.add('active');
+                    } else if (href.includes('#')) {
+                        link.classList.remove('active');
+                    }
+                });
             }
         });
     }
@@ -232,10 +318,14 @@ function initContactForm() {
             return;
         }
 
-        const btn = form.querySelector('.btn-submit');
+        const btn = form.querySelector('button[type="submit"]');
         const orig = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Dispatching...';
         btn.disabled = true;
+
+        const error = document.getElementById('formError');
+        success.style.display = 'none';
+        error.style.display = 'none';
 
         // Create FormData object
         const formData = new FormData(form);
@@ -259,11 +349,11 @@ function initContactForm() {
 
                     if (data.status === 'success') {
                         form.reset();
-                        success.innerHTML = '<i class="fas fa-check-circle"></i> <span>Message sent successfully to pugalselvan04@gmail.com!</span>';
-                        success.classList.add('show');
-                        setTimeout(() => success.classList.remove('show'), 5000);
+                        success.style.display = 'block';
+                        setTimeout(() => success.style.display = 'none', 8000);
                     } else {
-                        alert('Error from server: ' + data.message);
+                        error.style.display = 'block';
+                        error.innerHTML = `<i class="fas fa-exclamation-circle"></i> Service Error: ${data.message}`;
                     }
                 } catch (e) {
                     console.error('JSON Parse Error:', e);
