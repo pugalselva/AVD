@@ -8,6 +8,7 @@
                         <img src="images/logo1.png" alt="AVD" class="footer-logo-img">
                         <span class="footer-logo-text logo-text">
                             <span class="logo-main" style="color: var(--white);">INDUSTRIAL TRADERS</span>
+                        </span>
                     </div>
                     <p class="footer-desc">Authorised Distributor for CUMI – Carborundum Universal Limited. Serving
                         industrial precision and quality since inception.</p>
@@ -79,7 +80,10 @@
 <!-- Back to Top -->
 <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
+
+
 <!-- Global JS Libraries could go here -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 </body>
 

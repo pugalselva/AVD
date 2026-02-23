@@ -7,129 +7,99 @@ include 'header.php';
 
 
 <!-- ===== PREMIUM HERO SECTION ===== -->
-<section class="hero-premium" id="home"
-    style="min-height: 100vh; position: relative; background: var(--primary); overflow: hidden; display: flex; align-items: center; padding-top: var(--header-height);">
-    <!-- Abstract Ambient Visuals -->
-    <div
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.15) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(233, 30, 99, 0.1) 0%, transparent 50%);">
-    </div>
-    <div
-        style="position: absolute; inset: 0; background: url('images/hero-bg.jpg') center/cover no-repeat; opacity: 0.3; filter: grayscale(1) brightness(0.6);">
+<section class="hero-premium" id="home">
+    <div class="hero-visuals">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="hero-img-bg"></div>
     </div>
 
-    <div class="container" style="position: relative; z-index: 2;">
-        <div class="hero-content-premium" data-animate="reveal" class="active">
-            <div class="glass-premium"
-                style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; border-radius: var(--radius-full); margin-bottom: 30px;">
-                <i class="fas fa-certificate" style="color: var(--accent);"></i>
-                <span
-                    style="color: var(--white); font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;">Authorised
-                    CUMI Distributor</span>
+    <div class="container">
+        <div class="hero-content-premium" data-animate="reveal">
+            <div class="shimmer-label">
+                <i class="fas fa-certificate"></i>
+                <span>Authorised CUMI Distributor</span>
             </div>
 
-            <h1 class="premium-title-main" style="margin-bottom: 20px;">
-                AVD Industrial
-                <span>Traders</span>
+            <h1 class="hero-title-main">
+                AVD <span class="text-accent d-inline">Industrial</span>
+                Traders
             </h1>
 
-            <p
-                style="font-size: 1.25rem; color: var(--text-light); max-width: 600px; line-height: 1.8; margin-bottom: 50px; border-left: 2px solid var(--accent); padding-left: 30px;">
-                Authorised Distributor for <strong>CUMI – Carborundum Universal Limited (Murugappa Group)</strong>.
-                Premium abrasive solutions and precision engineering tools delivered across Tamil Nadu.
+            <p class="subtitle">
+                Authorised Distributor for CUMI – Carborundum Universal Limited <strong>(Murugappa Group).</strong>
+                Premium abrasive products and power tools delivered across Villupuram & Tamil Nadu.
             </p>
 
-            <div style="display: flex; gap: 20px; margin-bottom: 80px;">
-                <a href="#products" class="btn btn-primary"
-                    style="padding: 20px 45px; border-radius: var(--radius-full); font-weight: 800; letter-spacing: 1px;">EXPLORE
-                    CATALOG</a>
-                <a href="#contact" class="btn btn-outline"
-                    style="padding: 20px 45px; border-radius: var(--radius-full); color: white; border-color: rgba(255,255,255,0.3);">CONSULT
-                    AN EXPERT</a>
+            <div class="hero-btns-premium d-flex gap-4 mb-5">
+                <a href="grinding.php" class="btn btn-primary px-5 py-3">
+                    <i class="fas fa-th-large me-2"></i> View Products
+                </a>
+                <a href="tel:+918682069879" class="btn btn-outline px-5 py-3">
+                    <i class="fas fa-phone-alt me-2"></i> Call Us Now
+                </a>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 800px;">
-                <div class="glass-premium" style="padding: 30px; border-top: 1px solid rgba(0, 188, 212, 0.3);">
-                    <strong
-                        style="display: block; font-size: 2.5rem; color: var(--white); line-height: 1;">500+</strong>
-                    <span
-                        style="color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;">Precision
-                        Products</span>
+            <div class="hero-stats-row" data-animate="reveal">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Products</span>
                 </div>
-                <div class="glass-premium" style="padding: 30px; border-top: 1px solid rgba(255, 255, 255, 0.2);">
-                    <strong
-                        style="display: block; font-size: 2.5rem; color: var(--white); line-height: 1;">300+</strong>
-                    <span
-                        style="color: var(--text-light); font-weight: 800; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px;">Customers
-                        Served</span>
+                <div class="separator"></div>
+                <div class="stat-item">
+                    <span class="stat-number" style="color: white; -webkit-text-stroke: 1px #1565c0;">CUMI</span>
+                    <span class="stat-label">Authorised</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Scrolling Decoration -->
-    <div style="position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center;">
-        <span
-            style="display: block; font-size: 0.7rem; color: var(--text-light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px;">Discover
-            Excellence</span>
-        <div
-            style="width: 2px; height: 60px; background: linear-gradient(to bottom, var(--accent), transparent); margin: 0 auto;">
-        </div>
+    <div class="scroll-indicator">
+        <span class="text-uppercase small opacity-50 tracking-widest mb-2 d-block">Explore</span>
+        <div class="line"></div>
     </div>
 </section>
 
 <!-- ===== PREMIUM ABOUT SECTION ===== -->
-<section style="padding: 120px 0; background: var(--white); position: relative;" id="about">
+<section class="about-section py-lg-7" id="about">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;">
-            <div data-animate="reveal">
-                <div style="position: relative;">
-                    <div
-                        style="position: absolute; top: -30px; left: -30px; width: 120px; height: 120px; border-top: 5px solid var(--accent); border-left: 5px solid var(--accent); z-index: 0;">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5" data-animate="reveal">
+                <div class="about-visual-wrapper position-relative">
+                    <div class="accent-frame"></div>
+                    <div class="glass-premium overflow-hidden rounded-lg shadow-xl">
+                        <img src="images/about1.png" alt="Industrial Facility" class="img-fluid">
                     </div>
-                    <div class="glass-premium"
-                        style="position: relative; z-index: 1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-premium);">
-                        <img src="images/about1.png" alt="Industrial Facility" style="width: 100%; display: block;">
-                    </div>
-                    <div class="glass-premium"
-                        style="position: absolute; bottom: -30px; left:90%; transform: translateX(-50%); padding: 25px 40px; background: var(--primary); color: white; border-radius: var(--radius-md); box-shadow: var(--shadow-premium); white-space: nowrap; text-align: center; z-index: 2;">
-                        <strong
-                            style="display: block; font-size: 2.5rem; color: var(--highlight); line-height: 1; margin-bottom: 5px;">ISO
-                        </strong>
-                        <span
-                            style="font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent);">Certified
-                        </span>
+                    <div class="about-iso-badge premium-badge">
+                        <strong class="d-block">ISO</strong>
+                        <span class="text-uppercase tracking-widest">Certified</span>
                     </div>
                 </div>
             </div>
-
-            <div data-animate="reveal" style="transition-delay: 0.2s;">
-                <span class="header-tag-minimal" style="color: var(--highlight);">Corporate Excellence</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 30px; line-height: 1.1;">The AVD <span>Legacy</span>
-                </h2>
-                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-main); margin-bottom: 25px;">
+            <div class="col-lg-7" data-animate="reveal" style="transition-delay: 0.2s;">
+                <span class="section-tag">Corporate Excellence</span>
+                <h2 class="section-title">The AVD <span>Legacy</span></h2>
+                <p class="section-desc mb-4">
                     Led by <strong>G. Govindavasan, M.Tech.</strong>, AVD Industrial Traders stands as a beacon of
                     technical excellence in the abrasive industry.
                 </p>
-                <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 40px;">
+                <p class="text-muted mb-5">
                     As authorised distributors for CUMI (Carborundum Universal Limited), we bridge the gap between
                     world-class engineering and local industrial requirements with unparalleled technical depth.
                 </p>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-                    <div class="glass-premium" style="padding: 25px; border-left: 2px solid var(--accent);">
-                        <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: var(--primary);">Expert
-                            Consultancy
-                        </h4>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Technical guidance driven by
-                            advanced
-                            M.Tech. expertise.</p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="glass-premium p-4 border-start-accent">
+                            <h4 class="h6 mb-2">Expert Consultancy</h4>
+                            <p class="small text-muted mb-0">Technical guidance driven by advanced M.Tech. expertise.
+                            </p>
+                        </div>
                     </div>
-                    <div class="glass-premium" style="padding: 25px; border-left: 2px solid var(--highlight);">
-                        <h4 style="font-size: 0.9rem; margin-bottom: 10px; color: var(--primary);">Verified Supply
-                        </h4>
-                        <p style="font-size: 0.8rem; color: var(--text-muted);">Authorised CUMI distribution with
-                            GSTIN
-                            compliance.</p>
+                    <div class="col-md-6">
+                        <div class="glass-premium p-4 border-start-highlight">
+                            <h4 class="h6 mb-2">Verified Supply</h4>
+                            <p class="small text-muted mb-0">Authorised CUMI distribution with GSTIN compliance.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,73 +111,77 @@ include 'header.php';
 <!-- ===== PREMIUM PRODUCTS SECTION ===== -->
 <section style="padding: 120px 0; background: var(--bg-light);" id="products">
     <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 80px;" data-animate="reveal">
-            <span class="header-tag-minimal" style="color: var(--accent); display: block; margin: 0 auto;">CUMI
-                Authorised Solutions</span>
-            <h2 style="font-size: 3rem;">Precision <span>Engineering Range</span></h2>
+        <div class="section-header text-center mb-5" data-animate="reveal">
+            <span class="header-tag-minimal mb-2">CUMI Authorised Solutions</span>
+            <h2 style="font-size: 3rem;">Our <span>Products</span></h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+        <div class="row g-4">
             <!-- Product Card 1 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium);" data-animate="reveal">
-                <div
-                    style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px;">
-                    <img src="images/Grinding-Wheels.png" alt="Grinding Wheels"
-                        style="max-height: 80%; transition: scale 0.6s ease;">
-                </div>
-                <div style="padding: 35px;">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Grinding Wheels</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Superior surface
-                        finishing and extreme material removal.</p>
-                    <a href="products.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; font-size: 0.8rem; border-radius: var(--radius-sm);">VIEW
-                        SPECS</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal">
+                <div class="glass-premium product-card-premium h-100 shadow-sm border-0">
+                    <div class="product-img-wrapper"
+                        style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+                        <img src="images/Grinding-Wheels.png" alt="Grinding Wheels"
+                            style="max-height: 80%; transition: transform 0.6s ease;">
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="product-category fw-bold"
+                            style="color: var(--accent); font-size: 0.75rem; text-transform: uppercase;">Bonded
+                            Abrasives</span>
+                        <h3 class="h4 mt-2">Grinding Wheels</h3>
+                        <p class="text-muted small mb-4">Superior surface finishing and extreme material removal for
+                            precision engineering.</p>
+                        <a href="grinding.php" class="btn btn-primary w-100 py-3"
+                            style="border-radius: var(--radius-sm);">VIEW SPECS</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 2 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium); transition-delay: 0.1s;"
-                data-animate="reveal">
-                <div
-                    style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px;">
-                    <img src="images/Cutting.png" alt="Cutting Discs" style="max-height: 80%;">
-                </div>
-                <div style="padding: 35px;">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Cutting Discs</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Ultra-thin
-                        high-speed
-                        cutting for clean industrial results.</p>
-                    <a href="products.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; font-size: 0.8rem; border-radius: var(--radius-sm);">VIEW
-                        SPECS</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium product-card-premium h-100 shadow-sm border-0">
+                    <div class="product-img-wrapper"
+                        style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+                        <img src="images/Cutting.png" alt="Cutting Discs"
+                            style="max-height: 80%; transition: transform 0.6s ease;">
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="product-category fw-bold"
+                            style="color: var(--accent); font-size: 0.75rem; text-transform: uppercase;">Cutting
+                            Solutions</span>
+                        <h3 class="h4 mt-2">Advanced Cutting</h3>
+                        <p class="text-muted small mb-4">Ultra-thin technology for clean, burr-free cuts in stainless
+                            steel and alloys.</p>
+                        <a href="grinding.php" class="btn btn-outline w-100 py-3"
+                            style="border-radius: var(--radius-sm);">VIEW SPECS</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Card 3 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium); transition-delay: 0.2s;"
-                data-animate="reveal">
-                <div
-                    style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px;">
-                    <img src="images/sanding.png" alt="Sanding Sheets" style="max-height: 80%;">
-                </div>
-                <div style="padding: 35px;">
-                    <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Sanding Solutions</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Premium coated
-                        abrasives for peak surface preparation.</p>
-                    <a href="products.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; font-size: 0.8rem; border-radius: var(--radius-sm);">VIEW
-                        SPECS</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.2s;">
+                <div class="glass-premium product-card-premium h-100 shadow-sm border-0">
+                    <div class="product-img-wrapper"
+                        style="height: 250px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 30px; border-radius: var(--radius-sm) var(--radius-sm) 0 0;">
+                        <img src="images/power-tools.png" alt="Power Tools"
+                            style="max-height: 80%; transition: transform 0.6s ease;">
+                    </div>
+                    <div class="product-info p-4">
+                        <span class="product-category fw-bold"
+                            style="color: var(--accent); font-size: 0.75rem; text-transform: uppercase;">Machinery</span>
+                        <h3 class="h4 mt-2">Power Tools</h3>
+                        <p class="text-muted small mb-4">High-performance industrial machinery with robust motor
+                            technology for heavy duty.</p>
+                        <a href="products.php#power-tools" class="btn btn-outline w-100 py-3"
+                            style="border-radius: var(--radius-sm);">VIEW SPECS</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 60px;" data-animate="reveal">
-            <a href="products.php" class="btn btn-outline"
-                style="border-radius: var(--radius-full); padding: 15px 40px; color: var(--primary); border-color: var(--primary);">VIEW
-                ENTIRE CATALOG <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+        <div class="text-center mt-5" data-animate="reveal">
+            <a href="grinding.php" class="btn btn-primary px-5 py-3">VIEW ENTIRE CATALOG</a>
         </div>
     </div>
 </section>
@@ -308,45 +282,41 @@ include 'header.php';
 <!-- Redundant Gallery removed for cleaner Premium Flow -->
 
 <!-- ===== PREMIUM WHY CHOOSE US ===== -->
-<section style="padding: 120px 0; background: var(--primary); color: white; position: relative; overflow: hidden;"
-    id="why-us">
-    <div
-        style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(0, 188, 212, 0.05) 0%, transparent 70%);">
-    </div>
-    <div class="container" style="position: relative; z-index: 1;">
-        <div class="section-header" style="text-align: center; margin-bottom: 80px;" data-animate="reveal">
-            <span class="header-tag-minimal" style="color: var(--accent); display: block; margin: 0 auto;">Our
-                Strategic Edge</span>
-            <h2 style="font-size: 3rem; color: white;">Why <span>Partner With Us</span></h2>
+<section class="features-section py-lg-7 text-white position-relative overflow-hidden" id="why-us">
+    <div class="ambient-glow glow-centered"></div>
+    <div class="container position-relative z-index-2">
+        <div class="text-center mb-5" data-animate="reveal">
+            <span class="section-tag border-white opacity-70">Strategic Edge</span>
+            <h2 class="section-title">Why <span>Partner With Us</span>
+            </h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-            <div class="glass-premium"
-                style="padding: 40px; border-top: 1px solid rgba(0, 188, 212, 0.3); transition: transform 0.4s ease;"
-                data-animate="reveal">
-                <i class="fas fa-medal" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 25px;"></i>
-                <h3 style="font-size: 1.25rem; margin-bottom: 15px; color: white;">Global Quality</h3>
-                <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Authorised distribution
-                    channel for CUMI products, ensuring world-class industrial standards.</p>
+        <div class="row g-4">
+            <div class="col-lg-4" data-animate="reveal">
+                <div class="glass-premium-white p-4 h-100 border-top-accent shadow-lg">
+                    <div class="icon-circle mb-4 bg-white-10 shadow-lg"><i class="fas fa-medal"></i></div>
+                    <h3 class="h5 text-dark mb-3">Global Quality</h3>
+                    <p class="small text-dark opacity-70 mb-0">Authorised distribution channel for CUMI products,
+                        ensuring world-class industrial standards.</p>
+                </div>
             </div>
 
-            <div class="glass-premium"
-                style="padding: 40px; border-top: 1px solid rgba(233, 30, 99, 0.3); transition: transform 0.4s ease; transition-delay: 0.1s;"
-                data-animate="reveal">
-                <i class="fas fa-microchip"
-                    style="font-size: 2.5rem; color: var(--highlight); margin-bottom: 25px;"></i>
-                <h3 style="font-size: 1.25rem; margin-bottom: 15px; color: white;">Technical Depth</h3>
-                <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Expert advice provided by
-                    M.Tech professionals to solve complex abrasive challenges.</p>
+            <div class="col-lg-4" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium-white p-4 h-100 border-top-highlight shadow-lg">
+                    <div class="icon-circle mb-4 bg-white-10 highlight-icon shadow-lg"><i class="fas fa-microchip"></i></div>
+                    <h3 class="h5 text-dark mb-3">Technical Depth</h3>
+                    <p class="small text-dark opacity-70 mb-0">Expert advice provided by M.Tech professionals to solve
+                        complex abrasive challenges.</p>
+                </div>
             </div>
 
-            <div class="glass-premium"
-                style="padding: 40px; border-top: 1px solid rgba(255, 255, 255, 0.2); transition: transform 0.4s ease; transition-delay: 0.2s;"
-                data-animate="reveal">
-                <i class="fas fa-truck-fast" style="font-size: 2.5rem; color: var(--white); margin-bottom: 25px;"></i>
-                <h3 style="font-size: 1.25rem; margin-bottom: 15px; color: white;">Supply Agility</h3>
-                <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Optimized logistics
-                    network ensuring rapid delivery across Tamil Nadu regions.</p>
+            <div class="col-lg-4" data-animate="reveal" style="transition-delay: 0.2s;">
+                <div class="glass-premium-white p-4 h-100 border-top-white shadow-lg">
+                    <div class="icon-circle mb-4 bg-white-10 text-dark shadow-lg"><i class="fas fa-truck-fast"></i></div>
+                    <h3 class="h5 text-dark mb-3">Supply Agility</h3>
+                    <p class="small text-dark opacity-70 mb-0">Optimized logistics network ensuring rapid delivery
+                        across Tamil Nadu regions.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -355,74 +325,98 @@ include 'header.php';
 <!-- ===== PREMIUM INDUSTRIES SECTION ===== -->
 <section style="padding: 120px 0; background: var(--bg-alt);" id="industries">
     <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 80px;" data-animate="reveal">
-            <span class="header-tag-minimal" style="color: var(--highlight); display: block; margin: 0 auto;">Market
-                Intelligence</span>
-            <h2 style="font-size: 3rem;">Sectors We <span>Empower</span></h2>
+        <div class="text-center mb-5" data-animate="reveal">
+            <span class="section-tag border-white opacity-70">Market Intelligence</span>
+            <h2 class="section-title">Sectors We <span>Empower</span>
+            </h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div class="glass-premium" style="padding: 35px; background: white; border: 1px solid rgba(0,0,0,0.05);"
-                data-animate="reveal">
-                <div
-                    style="width: 60px; height: 60px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 12px; margin-bottom: 25px; color: var(--accent);">
-                    <i class="fas fa-industry" style="font-size: 1.5rem;"></i>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-animate="reveal">
+                <div class="glass-premium p-4 h-100 shadow-lg border-0 bg-white"
+                    style="border-radius: var(--radius-sm);">
+                    <div class="icon-circle mb-4 bg-light"
+                        style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--accent);">
+                        <i class="fas fa-industry" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 class="h5 mb-3">Manufacturing</h4>
+                    <p class="text-muted small mb-0">Precision tools for high-volume production lines and precision
+                        engineering units.</p>
                 </div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 15px;">Manufacturing</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">Precision tools for
-                    high-volume production lines and precision engineering units.</p>
             </div>
 
-            <div class="glass-premium"
-                style="padding: 35px; background: white; border: 1px solid rgba(0,0,0,0.05); transition-delay: 0.1s;"
-                data-animate="reveal">
-                <div
-                    style="width: 60px; height: 60px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 12px; margin-bottom: 25px; color: var(--highlight);">
-                    <i class="fas fa-car" style="font-size: 1.5rem;"></i>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium p-4 h-100 shadow-lg border-0 bg-white"
+                    style="border-radius: var(--radius-sm);">
+                    <div class="icon-circle mb-4 bg-light"
+                        style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--highlight);">
+                        <i class="fas fa-car" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 class="h5 mb-3">Automotive</h4>
+                    <p class="text-muted small mb-0">Specialized abrasives for body finishing, engine components, and
+                        assembly.</p>
                 </div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 15px;">Automotive</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">Specialized abrasives for
-                    body finishing, engine components, and assembly.</p>
             </div>
 
-            <div class="glass-premium"
-                style="padding: 35px; background: white; border: 1px solid rgba(0,0,0,0.05); transition-delay: 0.2s;"
-                data-animate="reveal">
-                <div
-                    style="width: 60px; height: 60px; background: var(--bg-alt); display: flex; align-items: center; justify-content: center; border-radius: 12px; margin-bottom: 25px; color: var(--primary);">
-                    <i class="fas fa-building" style="font-size: 1.5rem;"></i>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.2s;">
+                <div class="glass-premium p-4 h-100 shadow-lg border-0 bg-white"
+                    style="border-radius: var(--radius-sm);">
+                    <div class="icon-circle mb-4 bg-light"
+                        style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: var(--primary);">
+                        <i class="fas fa-building" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h4 class="h5 mb-3">Construction</h4>
+                    <p class="text-muted small mb-0">Heavy-duty solutions for structural steel and architectural metal
+                        work.</p>
                 </div>
-                <h4 style="font-size: 1.1rem; margin-bottom: 15px;">Construction</h4>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">Heavy-duty solutions for
-                    structural steel and architectural metal work.</p>
             </div>
         </div>
     </div>
 </section>
 <!-- ===== PREMIUM LEADERSHIP SECTION ===== -->
-<section style="padding: 120px 0; background: var(--white);" id="leadership">
+<section class="leadership-section py-lg-7" id="leadership">
     <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 80px;" data-animate="reveal">
-            <span class="header-tag-minimal" style="color: var(--accent); display: block; margin: 0 auto;">Pillars
-                of Integrity</span>
-            <h2 style="font-size: 3rem;">Visionary <span>Leadership</span></h2>
+        <div class="text-center mb-5" data-animate="reveal">
+            <span class="section-tag">Pillars of Integrity</span>
+            <h2 class="section-title">Visionary <span>Leadership</span></h2>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px;">
-            <div class="glass-premium" style="display: flex; gap: 30px; padding: 40px; align-items: center;"
-                data-animate="reveal">
+        <div class="row g-4 justify-content-center">
+            <!-- Leader 1 -->
+            <div class="col-lg-5" data-animate="reveal">
                 <div
-                    style="width: 150px; height: 150px; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md); flex-shrink: 0;">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop"
-                        alt="G. Govindavasan" style="width: 100%; height: 100%; object-fit: cover;">
+                    class="glass-premium p-4 h-100 d-flex align-items-center gap-4 border-start-accent hover-translate">
+                    <div class="leader-avatar flex-shrink-0">
+                        <img src="images/founder.jpeg" alt="G. Govindavasan">
+                    </div>
+                    <div class="leader-details">
+                        <h4 class="h5 mb-1">G. Govindavasan</h4>
+                        <span class="small text-uppercase fw-bold text-accent tracking-widest d-block mb-3">Founder &
+                            CEO</span>
+                        <div class="leader-socials d-flex gap-3 text-muted">
+                            <a href="#" class="hover-accent"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover-accent"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 5px;">G. Govindavasan</h3>
-                    <span
-                        style="display: block; font-size: 0.75rem; font-weight: 800; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">Founder
-                        & Proprietor | M.Tech</span>
-                    <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">Technical visionary
-                        driving AVD's commitment to industrial excellence and product precision.</p>
+            </div>
+
+            <!-- Leader 2 -->
+            <div class="col-lg-5" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div
+                    class="glass-premium p-4 h-100 d-flex align-items-center gap-4 border-start-highlight hover-translate">
+                    <div class="leader-avatar flex-shrink-0 border-highlight">
+                        <img src="images/pugal.jpeg" alt="Pugal">
+                    </div>
+                    <div class="leader-details">
+                        <h4 class="h5 mb-1">Pugal</h4>
+                        <span class="small text-uppercase fw-bold text-highlight tracking-widest d-block mb-3">Managing
+                            Director</span>
+                        <div class="leader-socials d-flex gap-3 text-muted">
+                            <a href="#" class="hover-highlight"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover-highlight"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -432,110 +426,129 @@ include 'header.php';
 <!-- ===== PREMIUM CONTACT SECTION ===== -->
 <section style="padding: 120px 0; background: var(--bg-light);" id="contact">
     <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px;">
-            <div data-animate="reveal">
+        <div class="row g-5">
+            <div class="col-lg-5" data-animate="reveal">
                 <span class="header-tag-minimal" style="color: var(--accent);">Direct Connection</span>
                 <h2 style="font-size: 3rem; margin-bottom: 30px;">Let's Build <span>Together</span></h2>
-                <p style="color: var(--text-muted); margin-bottom: 50px; line-height: 1.8;">Technical inquiries,
-                    bulk quotations, or product consultations—our team is ready to assist your industrial
-                    operations.</p>
+                <p style="color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">Technical excellence and
+                    reliable delivery. Partner with AVD Industrial Traders for all your abrasive and Power tools requirements.
+                </p>
 
-                <div style="display: grid; gap: 20px;">
-                    <div class="glass-premium" style="padding: 30px; display: flex; gap: 20px; align-items: center;">
-                        <i class="fas fa-phone-alt" style="color: var(--accent); font-size: 1.5rem;"></i>
+                <div style="margin-bottom: 30px;">
+                    <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 25px;">
+                        <div
+                            style="width: 60px; height: 60px; background: white; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--accent); box-shadow: var(--shadow-glass);">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
                         <div>
                             <span
-                                style="display: block; font-size: 0.65rem; font-weight: 800; color: var(--text-light); text-transform: uppercase;">Primary
-                                Line</span>
-                            <a href="tel:+919843325078" style="font-size: 1.1rem; font-weight: 700;">+91 98433
-                                25078</a>
+                                style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--text-light); letter-spacing: 1px;">Expert
+                                Hotline</span>
+                            <strong style="font-size: 1.1rem; color: var(--primary);">+91 86820 69879</strong>
                         </div>
                     </div>
-                    <div class="glass-premium" style="padding: 30px; display: flex; gap: 20px; align-items: center;">
-                        <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.5rem;"></i>
-                        <div>
-                            <span
-                                style="display: block; font-size: 0.65rem; font-weight: 800; color: var(--text-light); text-transform: uppercase;">Business
-                                WhatsApp</span>
-                            <a href="https://wa.me/918682069879" style="font-size: 1.1rem; font-weight: 700;">+91
-                                86820 69879</a>
+
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div
+                            style="width: 60px; height: 60px; background: white; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--highlight); box-shadow: var(--shadow-glass);">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                    </div>
-                    <div class="glass-premium" style="padding: 30px; display: flex; gap: 20px; align-items: center;">
-                        <i class="fas fa-envelope" style="color: var(--highlight); font-size: 1.5rem;"></i>
                         <div>
                             <span
-                                style="display: block; font-size: 0.65rem; font-weight: 800; color: var(--text-light); text-transform: uppercase;">Email
-                                HQ</span>
-                            <a href="mailto:avdindustrialtraders0006@gmail.com"
-                                style="font-size: 0.95rem; font-weight: 700;">avdindustrialtraders0006@gmail.com</a>
+                                style="display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--text-light); letter-spacing: 1px;">Official
+                                Email</span>
+                            <strong
+                                style="font-size: 1.1rem; color: var(--primary);">avdindustrialtraders0006@gmail.com</strong>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="glass-premium" style="padding: 60px; background: white; box-shadow: var(--shadow-premium);"
-                data-animate="reveal">
-                <form id="contactForm">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                        <input type="text" placeholder="Your Name" required
-                            style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd;">
-                        <input type="tel" placeholder="Phone Number" required
-                            style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd;">
-                    </div>
-                    <input type="email" placeholder="Email Address"
-                        style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd; margin-bottom: 20px;">
-                    <textarea rows="5" placeholder="Project Requirements / Message" required
-                        style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd; margin-bottom: 30px;"></textarea>
-
-                    <button type="submit" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; padding: 20px; border-radius: var(--radius-full);">SUBMIT
-                        INQUIRY <i class="fas fa-paper-plane" style="margin-left: 10px;"></i></button>
-                </form>
+            <div class="col-lg-7" data-animate="reveal">
+                <div class="glass-premium" style="padding: 60px; background: white; box-shadow: var(--shadow-premium);">
+                    <form id="contactForm">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Your Name" required
+                                    style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd;">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="tel" placeholder="Phone Number" required
+                                    style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd;">
+                            </div>
+                        </div>
+                        <input type="email" placeholder="Email Address" required
+                            style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd; margin-bottom: 20px;">
+                        <textarea placeholder="How can we help you technicaly?" rows="5" required
+                            style="width: 100%; padding: 15px 25px; border-radius: var(--radius-sm); border: 1px solid #eee; background: #fdfdfd; margin-bottom: 30px; resize: none;"></textarea>
+                        <button type="submit" class="btn btn-primary"
+                            style="width: 100%; padding: 20px; border-radius: var(--radius-sm); font-weight: 800; letter-spacing: 1px;">SEND
+                            TECHNICAL INQUIRY</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 </section>
 
 
 <!-- ===== PARTNER BRANDS SECTION ===== -->
-<section style="padding: 100px 0; background: var(--white); border-top: 1px solid rgba(0,0,0,0.05);" id="partners">
+<section class="partners-section py-lg-7 bg-light border-top" id="partners">
     <div class="container">
-        <div class="section-header" style="text-align: center; margin-bottom: 60px;" data-animate="reveal">
-            <span class="header-tag-minimal" style="color: var(--accent); display: block; margin: 0 auto;">Trusted Quality</span>
-            <h2 style="font-size: 2.5rem;">Partner <span>Brands</span></h2>
+        <div class="text-center mb-5" data-animate="reveal">
+            <span class="section-tag">Trusted Quality</span>
+            <h2 class="section-title">Partner <span>Brands</span></h2>
         </div>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; align-items: center; justify-items: center;">
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">JAWAN BRAND</span>
+
+        <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-5">
+            <div class="col" data-animate="reveal">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">JAWAN BRAND</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.05s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">AJAX</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.05s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">AJAX</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.1s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">SAND MASTER</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">SAND MASTER</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.15s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">WARRIOR</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.15s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">WARRIOR</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.2s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">CONCORD</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.2s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">CONCORD</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.25s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">HI-CUT</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.25s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">HI-CUT</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.3s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">SAMURAI</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.3s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">SAMURAI</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.35s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">CHAMAK</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.35s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">CHAMAK</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.4s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">SPEED</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.4s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">SPEED</span>
+                </div>
             </div>
-            <div data-animate="reveal" class="glass-premium" style="padding: 20px; width: 100%; text-align: center; transition-delay: 0.45s;">
-                <span style="font-weight: 800; color: var(--primary); font-size: 0.9rem;">TEZZ</span>
+            <div class="col" data-animate="reveal" style="transition-delay: 0.45s;">
+                <div class="glass-premium p-3 text-center h-100 d-flex align-items-center justify-content-center">
+                    <span class="fw-bold small text-primary">TEZZ</span>
+                </div>
             </div>
         </div>
     </div>

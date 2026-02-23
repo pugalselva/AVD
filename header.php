@@ -23,7 +23,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+
     <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -54,13 +56,13 @@
             </ul>
 
             <div class="nav-actions">
-                <div class="nav-actions-phones"
+                <!-- <div class="nav-actions-phones"
                     style="display: flex; flex-direction: column; align-items: flex-end; margin-right: 20px;">
-                    <a href="tel:+918682069879"
-                        style="font-size: 0.9rem; font-weight: 700; color: var(--primary);">86820 69879</a>
-                    <a href="tel:+919843325078"
-                        style="font-size: 0.9rem; font-weight: 700; color: var(--primary);">98433 25078</a>
-                </div>
+                    <a href="tel:+918682069879" style="font-size: 0.9rem; font-weight: 700; color: var(--white);">86820
+                        69879</a>
+                    <a href="tel:+919843325078" style="font-size: 0.9rem; font-weight: 700; color: var(--white);">98433
+                        25078</a>
+                </div> -->
                 <div class="hamburger" id="hamburger">
                     <span></span><span></span><span></span>
                 </div>

@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initContactForm();
     initBackToTop();
+    initProductCatalog();
     // Reveal Animations on Scroll
     const revealElements = document.querySelectorAll('[data-animate="reveal"]');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -389,16 +390,214 @@ function initBackToTop() {
 }
 
 /* ───────────────────────────────────────────
-   SHAKE animation (injected once)
+   PRODUCT CATALOG (grinding.php)
    ─────────────────────────────────────────── */
-const shakeStyle = document.createElement('style');
-shakeStyle.textContent = `
-    @keyframes shake {
-        0%,100%{ transform:translateX(0) }
-        20%{ transform:translateX(-8px) }
-        40%{ transform:translateX(8px) }
-        60%{ transform:translateX(-5px) }
-        80%{ transform:translateX(5px) }
+function initProductCatalog() {
+    const grid = document.getElementById('productGrid');
+    if (!grid) return;
+
+    const products = [
+        {
+            name: "AGNI DC Wheel",
+            category: "Grinding Wheels",
+            materials: ["Steel", "Carbon Steel", "Cast Iron"],
+            img: "images/Gun-DC-Wheel.jpg"
+        },
+        {
+            name: "AGNI-H DC Wheel",
+            category: "Grinding Wheels",
+            materials: ["Heavy Duty", "Steel", "Alloy Steel"],
+            img: "images/Gun-DC-Wheel.jpg"
+        },
+        {
+            name: "AGNI-S DC Wheel",
+            category: "Grinding Wheels",
+            materials: ["Stainless Steel", "Non Ferrous Metal"],
+            img: "images/Gun-DC-Wheel.jpg"
+        },
+        {
+            name: "CUMI Depressed Centre Disc",
+            category: "Grinding Wheels",
+            materials: ["Steel", "Cast Iron", "Weld Prep"],
+            img: "images/Depressed.jpg"
+        },
+        {
+            name: "CUMI Flap Disc",
+            category: "Grinding Wheels",
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/Flap-Disc.png"
+        },
+        {
+            name: "CUMI Green 2 Net Wheel",
+            category: "Cutting Discs",
+            materials: ["Stainless Steel", "Alloy Steel", "Metal"],
+            img: "images/cumi_green_2.webp"
+        },
+        {
+            name: "CUMI Zon Ultra Thin",
+            category: "Cutting Discs",
+            materials: ["Stainless Steel", "Mild Steel"],
+            img: "images/cumi_zon_ultra_thin_wheel_feat_img.webp"
+        },
+        {
+            name: "Metal Cutting Disc 125mm",
+            category: "Cutting Discs",
+            materials: ["Construction Steel", "Mild Steel"],
+            img: "images/Metal-Cutting-Disc-125mm.png"
+        },
+        {
+            name: "CUMI Rapid Chopsaw CW09",
+            category: "Power Tool Accessories",
+            materials: ["Alloy Steel", "Carbon Steel"],
+            img: "images/CUMI-Rapid-Chopsaw-CW09.jpg"
+        },
+        {
+            name: "CUMI Green Chopsaw DF",
+            category: "Power Tool Accessories",
+            materials: ["Non Ferrous Metal", "Metal"],
+            img: "images/CUMI-Green-Chopsaw-DF.jpg"
+        },
+        {
+            name: "CAG-100 850W Angle Grinder",
+            category: "Power Tools",
+            materials: ["Grinding", "Cutting", "Polishing"],
+            img: "images/CAG-100-850W.webp"
+        },
+        {
+            name: "Ajax Sukha Paper Plus",
+            category: "Coated Abrasives",
+            materials: ["Wood", "Metal", "Plastic"],
+            img: "images/Ajax-Sukha-Paper-Plus.jpg"
+        },
+        {
+            name: "Ajax Waterproof Sheet",
+            category: "Coated Abrasives",
+            materials: ["Automotive", "Metal", "Wet Sanding"],
+            img: "images/Ajax-Sheet.jpg"
+        },
+        {
+            name: "Sandmaster Paper Roll",
+            category: "Coated Abrasives",
+            materials: ["Metal", "Paint Removal"],
+            img: "images/Sandmaster-Paper-Roll-Side.jpg"
+        },
+        {
+            name: "Sandmaster Premium Roll",
+            category: "Coated Abrasives",
+            materials: ["Wood", "Metal", "Finishing"],
+            img: "images/Sandmaster-Roll-Front.jpg"
+        },
+        {
+            name: "Concord NXT Cloth Roll",
+            category: "Coated Abrasives",
+            materials: ["Steel", "Mild Steel"],
+            img: "images/Concord-Roll.jpg"
+        },
+        {
+            name: "CUMI Chopsaw Wheel",
+            category: "Cutting Discs",
+            materials: ["Steel", "Iron", "Metal Cutting"],
+            img: "images/Chopsaw.jpg"
+        },
+        {
+            name: "CUMI Thin Cutting Disc",
+            category: "Cutting Discs",
+            materials: ["Stainless Steel", "Alloy Steel"],
+            img: "images/Cutting.png"
+        },
+        {
+            name: "Industrial Grinding Wheel",
+            category: "Grinding Wheels",
+            materials: ["Technical Grinding", "Metal"],
+            img: "images/Grinding-Wheels.png"
+        },
+        {
+            name: "Sandmaster Sanding Sheet",
+            category: "Coated Abrasives",
+            materials: ["Wood", "Paint", "Metal"],
+            img: "images/Sandmaster-Sheet.jpg"
+        },
+        {
+            name: "CUMI Premium Paper Roll",
+            category: "Coated Abrasives",
+            materials: ["Surface Prep", "Wood", "Metal"],
+            img: "images/paper-roll.png"
+        },
+        {
+            name: "Heavy Duty Chopsaw",
+            category: "Power Tools",
+            materials: ["Structural Steel", "Metal Cutting"],
+            img: "images/power-tools.png"
+        },
+        {
+            name: "Industrial Sanding Disc",
+            category: "Coated Abrasives",
+            materials: ["Finishing", "Metal"],
+            img: "images/sanding.png"
+        }
+    ];
+
+    const searchInput = document.getElementById('productSearch');
+    const materialFilters = document.querySelectorAll('.material-filter');
+    const clearBtn = document.getElementById('clearFilters');
+    const loader = document.getElementById('loader');
+    const noResults = document.getElementById('noResults');
+    const template = document.getElementById('productTemplate');
+
+    function renderProducts() {
+        grid.innerHTML = '';
+        const query = searchInput.value.toLowerCase();
+        const activeMaterials = Array.from(materialFilters)
+            .filter(i => i.checked)
+            .map(i => i.value);
+
+        const filtered = products.filter(p => {
+            const matchesSearch = p.name.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query);
+            const matchesMaterial = activeMaterials.length === 0 ||
+                p.materials.some(m => activeMaterials.includes(m));
+            return matchesSearch && matchesMaterial;
+        });
+
+        if (filtered.length === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
+            filtered.forEach(p => {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector('.product-name').textContent = p.name;
+                clone.querySelector('.product-cat').textContent = p.category;
+                clone.querySelector('.product-img').src = p.img;
+                clone.querySelector('.product-img').alt = p.name;
+
+                const mWrap = clone.querySelector('.product-materials');
+                p.materials.forEach(m => {
+                    const span = document.createElement('span');
+                    span.className = 'material-tag';
+                    span.textContent = m;
+                    mWrap.appendChild(span);
+                });
+
+                grid.appendChild(clone);
+            });
+            // Re-init reveal animations for new items
+            initAnimations();
+        }
     }
-`;
-document.head.appendChild(shakeStyle);
+
+    // Set initial behavior
+    setTimeout(() => {
+        loader.style.display = 'none';
+        renderProducts();
+    }, 800);
+
+    // Event listeners
+    searchInput.addEventListener('input', renderProducts);
+    materialFilters.forEach(f => f.addEventListener('change', renderProducts));
+
+    clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        materialFilters.forEach(f => f.checked = false);
+        renderProducts();
+    });
+}

@@ -3,18 +3,17 @@ $activePage = 'products';
 $pageTitle = 'Our Products';
 include 'header.php';
 ?>
-
-<!-- ===== PREMIUM PAGE HERO ===== -->
-<div class="page-header-premium">
-    <div class="container">
-        <div class="header-content-inner shimmer" data-animate="reveal" class="active">
-            <h1 class="premium-title-main">
-                PRECISION <span>CATALOG</span>
-            </h1>
-            <p class="premium-subtitle">
-                Explore the most advanced collection of CUMI abrasive solutions engineered for industrial performance.
-            </p>
-        </div>
+<!-- ===== PREMIUM PAGE HEADER ===== -->
+<div class="page-premium-header py-7"
+    style="position: relative; background: url('images/Cutting.png') center/cover no-repeat; color: white; padding-top: 151px; min-height: 450px; display: flex; align-items: center;">
+    <div
+        style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;">
+    </div>
+    <div class="container" style="position: relative; z-index: 2;" data-animate="reveal">
+        <span class="header-tag-minimal mb-3" style="color: var(--accent-light);">Technical Catalog</span>
+        <h1 class="display-3 fw-800 mb-4" style="color: white;">Superior <span>Industrial</span> Solutions</h1>
+        <p class="lead opacity-80 max-w-700">Explore the most advanced collection of CUMI abrasive solutions engineered
+            for peak industrial performance.</p>
     </div>
 </div>
 
@@ -33,149 +32,156 @@ include 'header.php';
                 Grinding & <span style="color: var(--accent);">Cutting Discs</span></h3>
         </div>
 
-        <div
-            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-bottom: 100px;">
+        <div class="row g-4">
             <!-- Product 1 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium);" data-animate="reveal">
-                <div
-                    style="height: 300px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                    <img src="images/Grinding-Wheels.png" alt="Grinding Wheels"
-                        style="max-height: 100%; transition: scale 0.6s ease;">
-                </div>
-                <div style="padding: 40px;">
-                    <span
-                        style="color: var(--highlight); font-weight: 800; font-size: 0.75rem; text-transform: uppercase;">Heavy
-                        Duty</span>
-                    <h3 style="font-size: 1.6rem; margin: 10px 0;">Precision Grinding Wheels</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Maximum material
-                        removal with a superior cold-cut finish for all industrial metals.</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>
-                            Reinforced Bond Matrix</li>
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i> ISO
-                            9001 Safety Standards</li>
-                    </ul>
-                    <a href="contact.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">Get Tech
-                        Specs</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/Grinding-Wheels.png" alt="Grinding Wheels"
+                            style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Bonded
+                            Abrasives</span>
+                        <h3 class="h4 mt-2">Precision Grinding Wheels</h3>
+                        <p class="text-muted small">Maximum material removal with a superior cold-cut finish.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
 
             <!-- Product 2 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium); transition-delay: 0.1s;"
-                data-animate="reveal">
-                <div
-                    style="height: 300px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                    <img src="images/Cutting.png" alt="Cutting Discs" style="max-height: 100%;">
-                </div>
-                <div style="padding: 40px;">
-                    <span
-                        style="color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase;">Precision</span>
-                    <h3 style="font-size: 1.6rem; margin: 10px 0;">Advanced Cutting Discs</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Ultra-thin technology
-                        for clean, burr-free cuts on stainless steel and alloys.</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>
-                            Minimal Burr Formation</li>
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>
-                            Extremely High Speed</li>
-                    </ul>
-                    <a href="contact.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">Get Tech
-                        Specs</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/Cutting.png" alt="Cutting Discs" style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Cutting
+                            Solutions</span>
+                        <h3 class="h4 mt-2">Advanced Cutting Discs</h3>
+                        <p class="text-muted small">Ultra-thin technology for clean, burr-free cuts in industrial
+                            alloys.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
 
             <!-- Product 3 -->
-            <div class="glass-premium shimmer"
-                style="overflow: hidden; transition: transform 0.4s var(--transition-premium); transition-delay: 0.2s;"
-                data-animate="reveal">
-                <div
-                    style="height: 300px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                    <img src="images/sanding.png" alt="DCGW" style="max-height: 100%;">
-                </div>
-                <div style="padding: 40px;">
-                    <span
-                        style="color: var(--highlight); font-weight: 800; font-size: 0.75rem; text-transform: uppercase;">Specialty</span>
-                    <h3 style="font-size: 1.6rem; margin: 10px 0;">Depressed Centre Discs</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Optimized for weld
-                        preparation and material leveling in heavy fabrication.</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i>
-                            Operator Comfort Focus</li>
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--accent); margin-right: 10px;"></i> CUMI
-                            Certified Quality</li>
-                    </ul>
-                    <a href="contact.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">Get Tech
-                        Specs</a>
+            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.2s;">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/sanding.png" alt="DCGW" style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Specialty</span>
+                        <h3 class="h4 mt-2">Depressed Centre Discs</h3>
+                        <p class="text-muted small">Optimized for weld preparation and industrial material leveling.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
         </div>
 
         <!-- CATEGORY: COATED -->
-        <div style="margin-bottom: 40px; border-left: 6px solid var(--highlight); padding-left: 20px;">
-            <h3 style="color: var(--primary); font-size: 2.2rem; text-transform: uppercase; letter-spacing: -1px;">
-                Coated <span style="color: var(--highlight);">Abrasives</span></h3>
+        <div class="category-divider-premium highlight-accent" style="margin-top: 100px;">
+            <h3 class="category-title">Coated <span>Abrasives</span></h3>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+        <div class="row g-4">
             <!-- Product 4 -->
-            <div class="glass-premium shimmer" style="overflow: hidden;" data-animate="reveal">
-                <div
-                    style="height: 300px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                    <img src="images/sanding.png" alt="Sanding Sheets" style="max-height: 100%;">
-                </div>
-                <div style="padding: 40px;">
-                    <span
-                        style="color: var(--accent); font-weight: 800; font-size: 0.75rem; text-transform: uppercase;">Versatile</span>
-                    <h3 style="font-size: 1.6rem; margin: 10px 0;">Premium Sanding Sheets</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Industrial-grade paper
-                        and cloth sheets for peak surface preparation.</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--highlight); margin-right: 10px;"></i>
-                            anti-clogging Technology</li>
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--highlight); margin-right: 10px;"></i>
-                            Grit 40 to 1200</li>
-                    </ul>
-                    <a href="contact.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">Inquire Bulk</a>
+            <div class="col-lg-6" data-animate="reveal">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/sanding.png" alt="Sanding Sheets" style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Versatile</span>
+                        <h3 class="h4 mt-2">Premium Sanding Sheets</h3>
+                        <p class="text-muted small">Industrial-grade surface preparation for peak finish and durability.
+                        </p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
+
             <!-- Product 5 -->
-            <div class="glass-premium shimmer" style="overflow: hidden;" data-animate="reveal"
-                style="transition-delay: 0.1s;">
-                <div
-                    style="height: 300px; background: #eaeff5; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                    <img src="images/paper-roll.png" alt="Abrasive Rolls" style="max-height: 100%;">
+            <div class="col-lg-6" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/paper-roll.png" alt="Abrasive Rolls" style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Bulk
+                            Supply</span>
+                        <h3 class="h4 mt-2">Industrial Abrasive Rolls</h3>
+                        <p class="text-muted small">Continuous supply solutions for large-scale surface finishing
+                            operations.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
-                <div style="padding: 40px;">
-                    <span
-                        style="color: var(--highlight); font-weight: 800; font-size: 0.75rem; text-transform: uppercase;">Bulk
-                        Supply</span>
-                    <h3 style="font-size: 1.6rem; margin: 10px 0;">Industrial Abrasive Rolls</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Continuous supply
-                        solutions for automated surface finishing machines.</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--highlight); margin-right: 10px;"></i>
-                            High Flexibility Cloth</li>
-                        <li style="margin-bottom: 10px; font-size: 0.9rem; color: var(--text-main);"><i
-                                class="fas fa-circle-check" style="color: var(--highlight); margin-right: 10px;"></i>
-                            Custom Width Options</li>
-                    </ul>
-                    <a href="contact.php" class="btn btn-primary"
-                        style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">Inquire Bulk</a>
+            </div>
+        </div>
+
+        <!-- CATEGORY: POWER TOOLS -->
+        <div id="power-tools" class="category-divider-premium yellow-accent" style="margin-top: 100px;">
+            <h3 class="category-title">Industrial <span>Power Tools</span></h3>
+        </div>
+
+        <div class="row g-4">
+            <!-- Product 6 -->
+            <div class="col-lg-6" data-animate="reveal">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/power-tools.png" alt="Industrial Chopsaw"
+                            style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Heavy
+                            Duty</span>
+                        <h3 class="h4 mt-2">High-Performance Chopsaws</h3>
+                        <p class="text-muted small">Robust cutting solutions for precision metal fabrication and
+                            structural work.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="col-lg-6" data-animate="reveal" style="transition-delay: 0.1s;">
+                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
+                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
+                    <div
+                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/IMG-20251116-WA0003.jpg.jpeg" alt="Industrial Grinder"
+                            style="max-height: 80%; width: auto;">
+                    </div>
+                    <div class="flex-grow-1">
+                        <span
+                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Precision</span>
+                        <h3 class="h4 mt-2">Angle Grinders & Sanders</h3>
+                        <p class="text-muted small">Professional-grade grinders for seamless industrial finishing and
+                            polishing.</p>
+                    </div>
+                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
         </div>
