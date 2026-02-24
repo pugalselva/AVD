@@ -114,7 +114,7 @@ include 'header.php';
                                 <div class="form-floating-custom">
                                     <label class="small text-uppercase fw-bold mb-2 d-block">Full Name</label>
                                     <input type="text" class="form-control premium-input p-3"
-                                        placeholder="G. Govindavasan" required>
+                                        placeholder="Enter your name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">

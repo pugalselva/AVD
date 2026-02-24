@@ -68,7 +68,7 @@ include 'header.php';
                 <div class="about-visual-wrapper position-relative">
                     <div class="accent-frame"></div>
                     <div class="glass-premium overflow-hidden rounded-lg shadow-xl">
-                        <img src="images/about1.png" alt="Industrial Facility" class="img-fluid">
+                        <img src="images/about1.png" alt="Industrial Facility" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="about-iso-badge premium-badge">
                         <strong class="d-block">ISO</strong>
@@ -311,7 +311,7 @@ include 'header.php';
             </div>
 
             <div class="col-lg-4" data-animate="reveal" style="transition-delay: 0.2s;">
-                <div class="glass-premium-white p-4 h-100 border-top-white shadow-lg">
+                <div class="glass-premium-white p-4 h-100 border-top-highlight shadow-lg">
                     <div class="icon-circle mb-4 bg-white-10 text-dark shadow-lg"><i class="fas fa-truck-fast"></i></div>
                     <h3 class="h5 text-dark mb-3">Supply Agility</h3>
                     <p class="small text-dark opacity-70 mb-0">Optimized logistics network ensuring rapid delivery
@@ -387,7 +387,7 @@ include 'header.php';
                 <div
                     class="glass-premium p-4 h-100 d-flex align-items-center gap-4 border-start-accent hover-translate">
                     <div class="leader-avatar flex-shrink-0">
-                        <img src="images/founder.jpeg" alt="G. Govindavasan">
+                        <img src="images/man.png" alt="G. Govindavasan">
                     </div>
                     <div class="leader-details">
                         <h4 class="h5 mb-1">G. Govindavasan</h4>
@@ -396,25 +396,6 @@ include 'header.php';
                         <div class="leader-socials d-flex gap-3 text-muted">
                             <a href="#" class="hover-accent"><i class="fab fa-linkedin-in"></i></a>
                             <a href="#" class="hover-accent"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Leader 2 -->
-            <div class="col-lg-5" data-animate="reveal" style="transition-delay: 0.1s;">
-                <div
-                    class="glass-premium p-4 h-100 d-flex align-items-center gap-4 border-start-highlight hover-translate">
-                    <div class="leader-avatar flex-shrink-0 border-highlight">
-                        <img src="images/pugal.jpeg" alt="Pugal">
-                    </div>
-                    <div class="leader-details">
-                        <h4 class="h5 mb-1">Pugal</h4>
-                        <span class="small text-uppercase fw-bold text-highlight tracking-widest d-block mb-3">Managing
-                            Director</span>
-                        <div class="leader-socials d-flex gap-3 text-muted">
-                            <a href="#" class="hover-highlight"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="hover-highlight"><i class="fas fa-envelope"></i></a>
                         </div>
                     </div>
                 </div>

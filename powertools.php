@@ -1,19 +1,19 @@
 <?php
 $activePage = 'products';
-$pageTitle = 'Grinding & Cutting - Product Catalog';
+$pageTitle = 'Industrial Power Tools - Product Catalog';
 include 'header.php';
 ?>
 <!-- ===== CATALOG HEADER ===== -->
 <div class="page-premium-header py-7"
-    style="position: relative; background: url('images/Grinding-Wheels.png') center/cover no-repeat; color: white; padding-top: 151px; min-height: 400px; display: flex; align-items: center;">
+    style="position: relative; background: url('images/power-tools1.webp') center/cover no-repeat; color: white; padding-top: 151px; min-height: 400px; display: flex; align-items: center;">
     <div
         style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.6) 100%); z-index: 1;">
     </div>
     <div class="container" style="position: relative; z-index: 2;" data-animate="reveal">
-        <span class="header-tag-minimal mb-3" style="color: var(--accent-light);">Cutting & Grinding</span>
-        <h1 class="display-4 fw-800 mb-4" style="color: white;">CUMI <span>Industrial</span> Abrasives</h1>
-        <p class="lead opacity-80 max-w-700">Explore our comprehensive range of high-performance grinding wheels and
-            cutting discs forทุก industrial application.</p>
+        <span class="header-tag-minimal mb-3" style="color: var(--accent-light);">Industrial Power Tools</span>
+        <h1 class="display-4 fw-800 mb-4" style="color: white;">CUMI <span>Power</span> Tools</h1>
+        <p class="lead opacity-80 max-w-700">High-performance industrial power tools engineered for durability,
+            precision, and peak productivity in demanding environments.</p>
     </div>
 </div>
 
@@ -70,7 +70,7 @@ include 'header.php';
                 <div class="search-wrapper mb-5" data-animate="reveal">
                     <div class="position-relative">
                         <input type="text" id="productSearch" class="form-control-premium py-4 ps-5"
-                            placeholder="Search for products (e.g. AGNI, Cutting Disc)..."
+                            placeholder="Search for power tools (e.g. Grinder, Chopsaw)..."
                             style="border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
                         <i class="fas fa-search position-absolute"
                             style="left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-light);"></i>
@@ -78,7 +78,7 @@ include 'header.php';
                 </div>
 
                 <!-- Product Grid -->
-                <div id="productGrid" class="row g-4">
+                <div id="productpowertool" class="row g-4" data-category="Power Tools">
                     <!-- Products will be injected by JavaScript -->
                     <div class="col-12 text-center py-5" id="loader">
                         <i class="fas fa-spinner fa-spin fa-3x" style="color: var(--accent);"></i>
@@ -156,3 +156,4 @@ include 'header.php';
 </style>
 
 <?php include 'footer.php'; ?>
+<script src="script.js"></script>

@@ -5,7 +5,7 @@ include 'header.php';
 ?>
 <!-- ===== PREMIUM PAGE HEADER ===== -->
 <div class="page-premium-header py-7"
-    style="position: relative; background: url('images/about.jpg') center/cover no-repeat; color: white; padding-top: 151px; min-height: 450px; display: flex; align-items: center;">
+    style="position: relative; background: url('images/Non-Woven-Abrasives.webp') center/cover no-repeat; color: white; padding-top: 151px; min-height: 450px; display: flex; align-items: center;">
     <div
         style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;">
     </div>
@@ -84,7 +84,7 @@ include 'header.php';
                     style="border-radius: var(--radius-md); border-left: 5px solid var(--accent) !important;">
                     <div class="leader-avatar flex-shrink-0"
                         style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 4px solid var(--accent);">
-                        <img src="images/founder.jpeg" alt="G. Govindavasan"
+                        <img src="images/man.png" alt="G. Govindavasan"
                             style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="leader-details">

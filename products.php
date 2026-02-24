@@ -5,7 +5,7 @@ include 'header.php';
 ?>
 <!-- ===== PREMIUM PAGE HEADER ===== -->
 <div class="page-premium-header py-7"
-    style="position: relative; background: url('images/Cutting.png') center/cover no-repeat; color: white; padding-top: 151px; min-height: 450px; display: flex; align-items: center;">
+    style="position: relative; background: url('images/Coated-Abrasives.webp') center/cover no-repeat; color: white; padding-top: 151px; min-height: 450px; display: flex; align-items: center;">
     <div
         style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 40%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;">
     </div>
@@ -34,7 +34,7 @@ include 'header.php';
 
         <div class="row g-4">
             <!-- Product 1 -->
-            <div class="col-lg-4 col-md-6" data-animate="reveal">
+            <div class="col-lg-6 col-md-6" data-animate="reveal">
                 <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
                     style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
                     <div
@@ -54,7 +54,7 @@ include 'header.php';
             </div>
 
             <!-- Product 2 -->
-            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.1s;">
+            <div class="col-lg-6 col-md-6" data-animate="reveal" style="transition-delay: 0.1s;">
                 <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
                     style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
                     <div
@@ -68,24 +68,6 @@ include 'header.php';
                         <h3 class="h4 mt-2">Advanced Cutting Discs</h3>
                         <p class="text-muted small">Ultra-thin technology for clean, burr-free cuts in industrial
                             alloys.</p>
-                    </div>
-                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="col-lg-4 col-md-6" data-animate="reveal" style="transition-delay: 0.2s;">
-                <div class="glass-premium p-4 h-100 shadow-sm border-0 bg-white"
-                    style="border-radius: var(--radius-sm); display: flex; flex-direction: column;">
-                    <div
-                        style="height: 250px; display: flex; align-items: center; justify-content: center; background: #eaeff5; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 20px;">
-                        <img src="images/sanding.png" alt="DCGW" style="max-height: 80%; width: auto;">
-                    </div>
-                    <div class="flex-grow-1">
-                        <span
-                            style="color: var(--accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Specialty</span>
-                        <h3 class="h4 mt-2">Depressed Centre Discs</h3>
-                        <p class="text-muted small">Optimized for weld preparation and industrial material leveling.</p>
                     </div>
                     <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
@@ -161,7 +143,7 @@ include 'header.php';
                         <p class="text-muted small">Robust cutting solutions for precision metal fabrication and
                             structural work.</p>
                     </div>
-                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
+                    <a href="powertools.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
 
@@ -181,7 +163,7 @@ include 'header.php';
                         <p class="text-muted small">Professional-grade grinders for seamless industrial finishing and
                             polishing.</p>
                     </div>
-                    <a href="grinding.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
+                    <a href="powertools.php" class="btn btn-primary w-100 py-3 mt-3">View Products</a>
                 </div>
             </div>
         </div>
@@ -207,7 +189,7 @@ include 'header.php';
             </div>
             <div class="glass-premium" style="height: 400px; overflow: hidden; position: relative;"
                 data-animate="reveal">
-                <img src="images/Cutting-Disc.png" alt="Showcase"
+                <img src="images/powertools/Chopsaw-2.jpg" alt="Showcase"
                     style="width: 100%; height: 100%; object-fit: contain; padding: 40px;">
                 <div
                     style="position: absolute; inset: 0; background: rgba(15, 23, 42, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
@@ -216,7 +198,7 @@ include 'header.php';
             </div>
             <div class="glass-premium" style="height: 400px; overflow: hidden; position: relative;"
                 data-animate="reveal">
-                <img src="images/Abrasive-Rolls.png" alt="Showcase"
+                <img src="images/powertools/CCM-355E.webp" alt="Showcase"
                     style="width: 100%; height: 100%; object-fit: contain; padding: 40px;">
                 <div
                     style="position: absolute; inset: 0; background: rgba(15, 23, 42, 0.7); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">

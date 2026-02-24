@@ -17,7 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initContactForm();
     initBackToTop();
+    // Initialize catalogs - only one will run based on presence of trigger elements
+    // initUniversalCatalog();
     initProductCatalog();
+    initPowerToolCatalog();
     // Reveal Animations on Scroll
     const revealElements = document.querySelectorAll('[data-animate="reveal"]');
     const revealObserver = new IntersectionObserver((entries) => {
@@ -45,7 +48,7 @@ function initHeader() {
 
 /* ───────────────────────────────────────────
    DROPDOWN — click to open/close (desktop)
-   ─────────────────────────────────────────── */
+   ─────────────────────────────────────────────────── */
 function initDropdown() {
     const dropdowns = document.querySelectorAll('.nav-item-dropdown');
 
@@ -390,7 +393,8 @@ function initBackToTop() {
 }
 
 /* ───────────────────────────────────────────
-   PRODUCT CATALOG (grinding.php)
+   UNIVERSAL PRODUCT CATALOG
+   Handles both grinding.php
    ─────────────────────────────────────────── */
 function initProductCatalog() {
     const grid = document.getElementById('productGrid');
@@ -401,18 +405,6 @@ function initProductCatalog() {
             name: "AGNI DC Wheel",
             category: "Grinding Wheels",
             materials: ["Steel", "Carbon Steel", "Cast Iron"],
-            img: "images/Gun-DC-Wheel.jpg"
-        },
-        {
-            name: "AGNI-H DC Wheel",
-            category: "Grinding Wheels",
-            materials: ["Heavy Duty", "Steel", "Alloy Steel"],
-            img: "images/Gun-DC-Wheel.jpg"
-        },
-        {
-            name: "AGNI-S DC Wheel",
-            category: "Grinding Wheels",
-            materials: ["Stainless Steel", "Non Ferrous Metal"],
             img: "images/Gun-DC-Wheel.jpg"
         },
         {
@@ -446,24 +438,6 @@ function initProductCatalog() {
             img: "images/Metal-Cutting-Disc-125mm.png"
         },
         {
-            name: "CUMI Rapid Chopsaw CW09",
-            category: "Power Tool Accessories",
-            materials: ["Alloy Steel", "Carbon Steel"],
-            img: "images/CUMI-Rapid-Chopsaw-CW09.jpg"
-        },
-        {
-            name: "CUMI Green Chopsaw DF",
-            category: "Power Tool Accessories",
-            materials: ["Non Ferrous Metal", "Metal"],
-            img: "images/CUMI-Green-Chopsaw-DF.jpg"
-        },
-        {
-            name: "CAG-100 850W Angle Grinder",
-            category: "Power Tools",
-            materials: ["Grinding", "Cutting", "Polishing"],
-            img: "images/CAG-100-850W.webp"
-        },
-        {
             name: "Ajax Sukha Paper Plus",
             category: "Coated Abrasives",
             materials: ["Wood", "Metal", "Plastic"],
@@ -494,12 +468,6 @@ function initProductCatalog() {
             img: "images/Concord-Roll.jpg"
         },
         {
-            name: "CUMI Chopsaw Wheel",
-            category: "Cutting Discs",
-            materials: ["Steel", "Iron", "Metal Cutting"],
-            img: "images/Chopsaw.jpg"
-        },
-        {
             name: "CUMI Thin Cutting Disc",
             category: "Cutting Discs",
             materials: ["Stainless Steel", "Alloy Steel"],
@@ -524,10 +492,10 @@ function initProductCatalog() {
             img: "images/paper-roll.png"
         },
         {
-            name: "Heavy Duty Chopsaw",
+            name: "Chopsaw",
             category: "Power Tools",
-            materials: ["Structural Steel", "Metal Cutting"],
-            img: "images/power-tools.png"
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/Chopsaw.jpg"
         },
         {
             name: "Industrial Sanding Disc",
@@ -545,8 +513,10 @@ function initProductCatalog() {
     const template = document.getElementById('productTemplate');
 
     function renderProducts() {
+        if (!grid || !template) return;
         grid.innerHTML = '';
-        const query = searchInput.value.toLowerCase();
+        const query = searchInput ? searchInput.value.toLowerCase() : '';
+        const categoryFilter = grid.dataset.category; // Get category filter from grid's data attribute
         const activeMaterials = Array.from(materialFilters)
             .filter(i => i.checked)
             .map(i => i.value);
@@ -556,13 +526,15 @@ function initProductCatalog() {
                 p.category.toLowerCase().includes(query);
             const matchesMaterial = activeMaterials.length === 0 ||
                 p.materials.some(m => activeMaterials.includes(m));
-            return matchesSearch && matchesMaterial;
+            // Only show products that match the grid's category filter, if one is set
+            const matchesCategory = !categoryFilter || p.category.toLowerCase() === categoryFilter.toLowerCase();
+            return matchesSearch && matchesMaterial && matchesCategory;
         });
 
         if (filtered.length === 0) {
-            noResults.style.display = 'block';
+            if (noResults) noResults.style.display = 'block';
         } else {
-            noResults.style.display = 'none';
+            if (noResults) noResults.style.display = 'none';
             filtered.forEach(p => {
                 const clone = template.content.cloneNode(true);
                 clone.querySelector('.product-name').textContent = p.name;
@@ -581,23 +553,228 @@ function initProductCatalog() {
                 grid.appendChild(clone);
             });
             // Re-init reveal animations for new items
-            initAnimations();
+            if (typeof initAnimations === 'function') initAnimations();
         }
     }
 
     // Set initial behavior
     setTimeout(() => {
-        loader.style.display = 'none';
+        if (loader) loader.style.display = 'none';
         renderProducts();
     }, 800);
 
     // Event listeners
-    searchInput.addEventListener('input', renderProducts);
+    if (searchInput) searchInput.addEventListener('input', renderProducts);
     materialFilters.forEach(f => f.addEventListener('change', renderProducts));
 
-    clearBtn.addEventListener('click', () => {
-        searchInput.value = '';
-        materialFilters.forEach(f => f.checked = false);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            materialFilters.forEach(f => f.checked = false);
+            renderProducts();
+        });
+    }
+}
+
+/* ───────────────────────────────────────────
+   UNIVERSAL PRODUCT CATALOG
+   Handles both powertools.php
+   ─────────────────────────────────────────── */
+
+function initPowerToolCatalog() {
+    const grid = document.getElementById('productpowertool');
+    if (!grid) return;
+
+    const products = [
+        {
+            name: "CAG-180-Elite",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/powertools/CAG-180-Elite.webp"
+        },
+        {
+            name: "CB1-500VS-Blower",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/powertools/CB1-500VS-Blower.webp"
+        },
+        {
+            name: "Chopsaw-2200",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/powertools/Chopsaw-2.jpg"
+        },
+        {
+            name: "CPAG-4-720W-R2093",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Alloy Steel", "Finishing"],
+            img: "images/powertools/CPAG-4-720W-R2093.webp"
+        },
+        {
+            name: "CPAG-4-750W",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Alloy Steel", "Metal"],
+            img: "images/powertools/CPAG-4-750W.webp"
+        },
+        {
+            name: "CPAG-4-850W-RS-2128-1",
+            category: "Power Tools",
+            materials: ["Stainless Steel", "Mild Steel"],
+            img: "images/powertools/CPAG-4-850W-RS-2128-1.webp"
+        },
+        {
+            name: "CPAG-4-1200W-1",
+            category: "Power Tools",
+            materials: ["Construction Steel", "Mild Steel"],
+            img: "images/powertools/CPAG-4-1200W-1.webp"
+        },
+        {
+            name: "CPAG-5-1200W2191-1",
+            category: "Power Tools",
+            materials: ["Alloy Steel", "Carbon Steel"],
+            img: "images/powertools/CPAG-5-1200W2191-1.webp"
+        },
+        {
+            name: "CPAG-22-180-UL1375-1",
+            category: "Power Tools",
+            materials: ["Non Ferrous Metal", "Metal"],
+            img: "images/powertools/CPAG-22-180-UL1375-1.webp"
+        },
+        {
+            name: "CPCH-08 1100W Chipping Hammer",
+            category: "Power Tools",
+            materials: ["Demolition", "Masonry", "Concrete"],
+            img: "images/powertools/CPCH-08-1100W-Chipping-Hammer.webp"
+        },
+        {
+            name: "CPHD-20 500W Rotary Hammer",
+            category: "Power Tools",
+            materials: ["Precision Drilling", "Concrete", "Fixings"],
+            img: "images/powertools/CPHD-20-500W-Rotary-Hammer.webp"
+        },
+        {
+            name: "CPHD-26-800W-ROTARY-HAMMER",
+            category: "Power Tools",
+            materials: ["Professional Tile Cutting", "Ceramics"],
+            img: "images/powertools/CPHD-26-800W-ROTARY-HAMMER.webp"
+        },
+        {
+            name: "CPTC-110-1150W-1-1",
+            category: "Power Tools",
+            materials: ["Grinding", "Cutting", "Polishing"],
+            img: "images/powertools/CPTC-110-1150W-1-1.webp"
+        },
+        {
+            name: "CPTC-110-1350W-1-1",
+            category: "Power Tools",
+            materials: ["Heavy Duty Grinding", "Metal"],
+            img: "images/powertools/CPTC-110-1350W-1-1.webp"
+        },
+        {
+            name: "CTC-110-Plus",
+            category: "Power Tools",
+            materials: ["Cleaning", "Industrial Maintenance"],
+            img: "images/powertools/CTC-110-Plus.webp"
+        },
+        {
+            name: "CTC-125-PLUS-1-1",
+            category: "Power Tools",
+            materials: ["Structural Steel", "Metal Cutting"],
+            img: "images/powertools/CTC-125-PLUS-1-1.webp"
+        },
+        {
+            name: "CTC-125-SG-PLUS-5",
+            category: "Power Tools",
+            materials: ["Precision Grinding", "Metal"],
+            img: "images/powertools/CTC-125-SG-PLUS-5.webp"
+        },
+        {
+            name: "Impact-Drill-1-1",
+            category: "Power Tools",
+            materials: ["High Power Grinding", "Steel"],
+            img: "images/powertools/Impact-Drill-1-1.webp"
+        },
+        {
+            name: "SD3-110-1150W-1-1",
+            category: "Power Tools",
+            materials: ["Tile Cutting", "Masonry"],
+            img: "images/powertools/SD3.webp"
+        },
+        {
+            name: "Wall-Sanding-Machine-1-1",
+            category: "Power Tools",
+            materials: ["Drilling", "Concrete", "Metal"],
+            img: "images/powertools/Wall-Sanding-Machine-1-1.webp"
+        }
+    ];
+
+    const searchInput = document.getElementById('productSearch');
+    const materialFilters = document.querySelectorAll('.material-filter');
+    const clearBtn = document.getElementById('clearFilters');
+    const loader = document.getElementById('loader');
+    const noResults = document.getElementById('noResults');
+    const template = document.getElementById('productTemplate');
+
+    function renderProducts() {
+        if (!grid || !template) return;
+        grid.innerHTML = '';
+        const query = searchInput ? searchInput.value.toLowerCase() : '';
+        const categoryFilter = grid.dataset.category; // Get category filter from grid's data attribute
+        const activeMaterials = Array.from(materialFilters)
+            .filter(i => i.checked)
+            .map(i => i.value);
+
+        const filtered = products.filter(p => {
+            const matchesSearch = p.name.toLowerCase().includes(query) ||
+                p.category.toLowerCase().includes(query);
+            const matchesMaterial = activeMaterials.length === 0 ||
+                p.materials.some(m => activeMaterials.includes(m));
+            // Only show products that match the grid's category filter, if one is set
+            const matchesCategory = !categoryFilter || p.category.toLowerCase() === categoryFilter.toLowerCase();
+            return matchesSearch && matchesMaterial && matchesCategory;
+        });
+
+        if (filtered.length === 0) {
+            if (noResults) noResults.style.display = 'block';
+        } else {
+            if (noResults) noResults.style.display = 'none';
+            filtered.forEach(p => {
+                const clone = template.content.cloneNode(true);
+                clone.querySelector('.product-name').textContent = p.name;
+                clone.querySelector('.product-cat').textContent = p.category;
+                clone.querySelector('.product-img').src = p.img;
+                clone.querySelector('.product-img').alt = p.name;
+
+                const mWrap = clone.querySelector('.product-materials');
+                p.materials.forEach(m => {
+                    const span = document.createElement('span');
+                    span.className = 'material-tag';
+                    span.textContent = m;
+                    mWrap.appendChild(span);
+                });
+
+                grid.appendChild(clone);
+            });
+            // Re-init reveal animations for new items
+            if (typeof initAnimations === 'function') initAnimations();
+        }
+    }
+
+    // Set initial behavior
+    setTimeout(() => {
+        if (loader) loader.style.display = 'none';
         renderProducts();
-    });
+    }, 800);
+
+    // Event listeners
+    if (searchInput) searchInput.addEventListener('input', renderProducts);
+    materialFilters.forEach(f => f.addEventListener('change', renderProducts));
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            materialFilters.forEach(f => f.checked = false);
+            renderProducts();
+        });
+    }
 }
